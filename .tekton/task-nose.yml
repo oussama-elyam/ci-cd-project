@@ -1,0 +1,16 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: nose-task
+spec:
+  steps:
+    - name: run-nose-tests
+      image: python:3.9-slim
+      workingDir: /workspace
+      command:
+        - sh
+        - -c
+      args:
+        - |
+          pip install nose
+          nosetests

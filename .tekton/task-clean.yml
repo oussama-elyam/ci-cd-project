@@ -1,0 +1,21 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: cleanup-task
+spec:
+  steps:
+    - name: cleanup
+      image: python:3.9-slim
+      workingDir: /workspace
+      command:
+        - sh
+        - -c
+      args:
+        - |
+          # Remove compiled Python files
+          find . -type f -name '*.pyc' -exec rm {} +
+
+          # Remove temporary files
+          rm -rf ./tmp
+
+          # Clean up any other artifacts or directories as needed
