@@ -27,9 +27,9 @@ jobs:
       
       - name: Lint code
         run: |
-          echo "flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics"
+          print("flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics")
 
-          echo "flake8 . --count --max-complexity=10 --max-line-length=127 --statistics"          
+          print("flake8 . --count --max-complexity=10 --max-line-length=127 --statistics")        
 
   test:
     runs-on: ubuntu-latest
@@ -49,5 +49,5 @@ jobs:
       
       - name: Run tests
         run: |
-          echo "python -m pytest"
+          print("python -m pytest")
 
